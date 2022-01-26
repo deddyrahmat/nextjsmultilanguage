@@ -30,11 +30,11 @@ export default function Home() {
   );
 }
 
-export const getStaticProps = async ({ locale }) => {
+export const getServerSideProps = async (ctx) => {
   return {
     props: {
       // test: "tes",
-      ...(await serverSideTranslations(locale, ["common"])),
+      ...(await serverSideTranslations(ctx.locale, ["common"])),
     },
   };
 };
